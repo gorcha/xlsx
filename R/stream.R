@@ -6,19 +6,10 @@ createStreamWorkbook <- function()
   return(wb)
 }
 
-loadStreamWorkbook <- function(file)
+loadStreamWorkbook <- function(file, password=NULL)
 {
-  if (!file.exists(path.expand(file)))
-    stop("Cannot find ", path.expand(file))
-    
-  pkg <- .jcall("org/apache/poi/openxml4j/opc/OPCPackage",
-	"Lorg/apache/poi/openxml4j/opc/OPCPackage;",
-	"open", path.expand(file))
-
-  wb_template <- .jnew("org/apache/poi/xssf/usermodel/XSSFWorkbook", pkg)
-  
-  wb <- .jnew("org/apache/poi/xssf/streaming/SXSSFWorkbook", wb_template, as.integer(-1))
-
+  wb <- loadWorkbook(file, password)
+  wb <- .jnew("org/apache/poi/xssf/streaming/SXSSFWorkbook", wb, as.integer(-1))
   return(wb)
 }
 

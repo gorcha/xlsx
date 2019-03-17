@@ -22,7 +22,7 @@ test_that('stream export', {
   expect_identical(x,xx)
 })
 
-test_that('write password protected workbook succeeds', {
+test_that('write password protected stream workbook succeeds', {
   ## issue #49
   
   x <- data.frame(values=c(1,2,3),stringsAsFactors=FALSE)
