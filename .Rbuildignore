@@ -9,3 +9,4 @@ out/.*
 ^\.Rproj\.user$
 ^packrat/
 ^\.Rprofile$
+bench/.*
